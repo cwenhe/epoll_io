@@ -14,7 +14,6 @@ endif()
 
 include_directories(${ROOT_PATH}/include)
 file(GLOB_RECURSE SOURCE_FILES ${ROOT_PATH}/src/*.cpp)
-#aux_source_directory(${ROOT_PATH}/src SOURCE_FILES)
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE pthread)
