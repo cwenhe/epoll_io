@@ -5,6 +5,18 @@
 namespace ip
 {
 
+    Address::Address(ProtocolTraitsV4::AddrType const& addr)
+    {
+        address_ = std::make_shared<AddressV4>(addr);
+    }
+
+
+    Address::Address(ProtocolTraitsV6::AddrType const& addr)
+    {
+        address_ = std::make_shared<AddressV6>(addr);
+    }
+
+
     Address::Address(std::string const& address)
         :AddressBase()
     {

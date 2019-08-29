@@ -15,6 +15,8 @@ namespace ip
             using AddrType = typename ProtocolTraits<_Protocol>::AddrType;
             using BytesType = std::array<char, sizeof(AddrType)>;
 
+            explicit BasicAddress(AddrType const& addr );
+
             explicit BasicAddress( BytesType const& bytes );
 
             explicit BasicAddress( unsigned long addr );

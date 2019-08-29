@@ -37,3 +37,7 @@ struct ProtocolTraits<AF_INET6>
     static const int protocol = AF_INET6;
     static const int addr_str_len = INET6_ADDRSTRLEN;
 };
+
+
+using ProtocolTraitsV4 = ProtocolTraits<AF_INET>;
+using ProtocolTraitsV6 = ProtocolTraits<AF_INET6>;

@@ -8,6 +8,13 @@ namespace ip
 {
 
     template<int _Protocol>
+        BasicAddress<_Protocol>::BasicAddress(AddrType const& addr )
+            :addr_(addr)
+        {
+        }
+
+
+    template<int _Protocol>
         BasicAddress<_Protocol>::BasicAddress()
         {
             memset(&addr_, 0x00, sizeof(addr_));
