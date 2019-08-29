@@ -12,7 +12,7 @@ int main()
     io::EpollLoopSingleton::instance().run();
 
     In4AddrType addr;
-    ip::Address xxx(addr);
+    auto xx = ip::Address(addr);
     
 
     return 0;

@@ -40,6 +40,23 @@ namespace ip
         return cloned_address;
     }
 
+    Address::Address( Address const& oth)
+    {
+        this->address_ = oth.address_;
+    }
+
+
+    Address& Address::operator=( Address const& rhs)
+    {
+        if(this != &rhs)
+        {
+            this->address_ = rhs.address_;
+        }
+
+        return *this;
+    }
+
+
 
     std::string Address::toString() const
     {

@@ -18,6 +18,10 @@ namespace ip
 
             Address(ProtocolTraitsV6::AddrType const& addr);
 
+            Address( Address const& );
+
+            Address& operator=( Address const& );
+
             std::string toString() const override;
 
             bool isV4() const override;
