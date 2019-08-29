@@ -1,8 +1,8 @@
 #include "BasicServer.h"
 
 #include "Connnection.h"
-#include "utility/NetHostConversion.h"
-#include "utility/IOCtrl.h"
+#include "detail/NetHostConversion.h"
+#include "detail/IOCtrl.h"
 
 #include <arpa/inet.h>
 #include <errno.h>
@@ -32,7 +32,7 @@ namespace io
         struct sockaddr_in serv_addr;
         memset(&serv_addr, 0x00, sizeof(serv_addr));
         serv_addr.sin_family = AF_INET;
-        serv_addr.sin_port = hton(static_cast<decltype(serv_addr.sin_port)>(port));
+        serv_addr.sin_port = detail::hton(static_cast<decltype(serv_addr.sin_port)>(port));
         serv_addr.sin_addr.s_addr = inet_addr(host.c_str());
 
         if(-1 ==::bind(this->getNativeSocket(), (struct sockaddr*)&serv_addr, sizeof(serv_addr)))

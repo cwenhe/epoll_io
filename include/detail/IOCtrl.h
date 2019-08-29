@@ -2,9 +2,9 @@
 
 #include <stdint.h>
 
-#include "IODef.h"
+#include "detail/IODef.h"
 
-namespace utility
+namespace detail 
 {
 
     void setnoblock(int fd);

@@ -8,6 +8,12 @@ namespace io
 {
 
 
+    Connection::Connection()
+        :Socket(INVALID_NATIVE_SOCKET)
+    {
+    }
+
+
     Connection::Connection( NativeSocket const socket)
         :Socket(socket)
     {

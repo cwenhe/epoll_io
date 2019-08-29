@@ -1,5 +1,5 @@
 #include "Socket.h"
-#include "utility/IOCtrl.h"
+#include "detail/IOCtrl.h"
 
 #include <cassert>
 #include <errno.h>
@@ -43,7 +43,7 @@ namespace io
 
     void Socket::setNonBlock()
     {
-        utility::setnoblock(socket_);
+        detail::setnoblock(socket_);
     }
 
 

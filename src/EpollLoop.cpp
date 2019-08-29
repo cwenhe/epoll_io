@@ -8,7 +8,7 @@
 
 #include "BasicServer.h"
 #include "Connnection.h"
-#include "utility/IOCtrl.h"
+#include "detail/IOCtrl.h"
 #include "NativeAddr.h"
 
 
@@ -84,7 +84,7 @@ namespace io
     bool EpollLoop::addConnect( std::shared_ptr<Connection> connect)
     {
         auto socket_id = connect->getNativeSocket();
-        if(-1 == utility::epolladdevents(epollid_, socket_id, EPOLLIN|EPOLLET))
+        if(-1 == detail::epolladdevents(epollid_, socket_id, EPOLLIN|EPOLLET))
         {
             std::cerr<<" add event failed!"<<std::endl;
             return false;
@@ -98,7 +98,7 @@ namespace io
     bool EpollLoop::addServer( std::shared_ptr<BasicServer> server )
     {
         auto socket_id = server->getNativeSocket();
-        if(-1 == utility::epolladdevents(epollid_, socket_id, EPOLLIN|EPOLLET))
+        if(-1 == detail::epolladdevents(epollid_, socket_id, EPOLLIN|EPOLLET))
         {
             std::cerr<<"server add events error for "<<strerror(errno)<<std::endl;
             return false;
@@ -143,7 +143,7 @@ namespace io
         {
             auto& connection = *iter;
             //TODO need to set non block?
-            if(-1 == utility::epolladdevents(epollid_, connection->getNativeSocket(), EPOLLIN|EPOLLET))
+            if(-1 == detail::epolladdevents(epollid_, connection->getNativeSocket(), EPOLLIN|EPOLLET))
             {
                 std::cerr<<"server add events error!"<<std::endl;
                 break;

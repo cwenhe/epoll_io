@@ -1,9 +1,9 @@
-#include "utility/IOCtrl.h"
+#include "detail/IOCtrl.h"
 
 #include <fcntl.h>
 #include <sys/epoll.h>
 
-namespace utility
+namespace detail
 {
 
     static int epollctrlevents( EpollId const epfd, int const fd, int const op, uint32_t events)

@@ -5,7 +5,7 @@
 
 #include <arpa/inet.h>
 
-#include "IODef.h"
+#include "detail/IODef.h"
 
 namespace io
 {
@@ -35,6 +35,9 @@ namespace io
 
 
             struct sockaddr toAddr() const;
+
+
+            static struct sockaddr toAddr( std::string const& host, uint16_t const port );
 
         private:
             std::string host_;

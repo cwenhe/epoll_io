@@ -5,7 +5,7 @@
 #include <thread>
 #include <array>
 
-#include "IODef.h"
+#include "detail/IODef.h"
 #include "Loop.h"
 #include "utility/Singleton.hpp"
 

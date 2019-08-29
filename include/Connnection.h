@@ -16,6 +16,8 @@ namespace io
     class Connection: public IStream, public Socket
     {
         public:
+            Connection();
+
             Connection( NativeSocket const socket);
 
             virtual ~Connection();

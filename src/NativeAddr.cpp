@@ -6,7 +6,7 @@
 #include <sys/socket.h>
 #include <utility>
 
-#include "utility/NetHostConversion.h"
+#include "detail/NetHostConversion.h"
 
 
 namespace io
@@ -51,17 +51,22 @@ namespace io
     NativeAddr::NativeAddr( struct sockaddr_in const* addr)
     {
         host_ = inet_ntoa(addr->sin_addr);
-        port_ = io::ntoh(addr->sin_port);
+        port_ = detail::ntoh(addr->sin_port);
     }
 
 
 
     struct sockaddr NativeAddr::toAddr() const
     {
+        return NativeAddr::toAddr(host_, port_);
+    }
+
+    struct sockaddr NativeAddr::toAddr( std::string const& host, uint16_t const port)
+    {
         struct sockaddr_in addr;
         memset((char*)&addr, 0x00, sizeof(addr));
-        addr.sin_addr.s_addr = inet_addr(host_.c_str());
-        addr.sin_port = io::hton(static_cast<decltype(addr.sin_port)>(port_));
+        addr.sin_addr.s_addr = inet_addr(host.c_str());
+        addr.sin_port = detail::hton(static_cast<decltype(addr.sin_port)>(port));
 
         return *reinterpret_cast<struct sockaddr*>(&addr);
     }

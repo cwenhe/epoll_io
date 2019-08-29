@@ -1,9 +1,9 @@
-#include "utility/NetHostConversion.h"
+#include "detail/NetHostConversion.h"
 
 #include <endian.h>
 
 
-namespace io
+namespace detail
 {
     uint64_t hton( uint64_t const host_value )
     {

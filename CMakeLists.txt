@@ -13,7 +13,11 @@ if(COMPILER_SUPPORTS_CXX11)
 endif()
 
 include_directories(${ROOT_PATH}/include)
+include_directories(${ROOT_PATH})
 file(GLOB_RECURSE SOURCE_FILES ${ROOT_PATH}/src/*.cpp)
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} main.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE pthread)
+#add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+#target_link_libraries(${PROJECT_NAME} PUBLIC pthread)
+
+add_subdirectory(${ROOT_PATH}/client)
+add_subdirectory(${ROOT_PATH}/server)
