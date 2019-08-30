@@ -17,7 +17,7 @@ namespace ip
     template<int _Protocol>
         BasicAddress<_Protocol>::BasicAddress()
         {
-            memset(&addr_, 0x00, sizeof(addr_));
+            memset(&addr_, 0x00, sizeof(addr_));//INADDR_ANY
         }
 
 

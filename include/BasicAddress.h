@@ -2,7 +2,7 @@
 
 #include <array>
 
-#include "AddressBase.h"
+#include "detail/AddressBase.h"
 #include "detail/IODef.h"
 
 
@@ -48,4 +48,4 @@ namespace ip
 }
 
 
-#include "impl/BasicAddress.ipp"
+#include "detail/impl/BasicAddress.ipp"
